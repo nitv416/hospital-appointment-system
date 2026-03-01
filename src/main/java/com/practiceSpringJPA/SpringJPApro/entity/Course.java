@@ -13,15 +13,15 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Department {
+public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private String title;
 
-    @OneToMany(mappedBy = "department")
+    @ManyToMany(mappedBy = "courses")
     @JsonIgnore
     private List<Student> students = new ArrayList<>();
 }

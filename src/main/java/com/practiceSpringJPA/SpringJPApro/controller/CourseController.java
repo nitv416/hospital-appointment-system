@@ -1,0 +1,26 @@
+package com.practiceSpringJPA.SpringJPApro.controller;
+
+import com.practiceSpringJPA.SpringJPApro.entity.Course;
+import com.practiceSpringJPA.SpringJPApro.service.CourseService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/courses")
+@RequiredArgsConstructor
+public class CourseController {
+
+    private final CourseService courseService;
+
+    @PostMapping
+    public Course createCourse(@RequestBody Course course) {
+        return courseService.createCourse(course);
+    }
+
+    @GetMapping
+    public List<Course> getAllCourses() {
+        return courseService.getAllCourses();
+    }
+}
